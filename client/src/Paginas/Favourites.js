@@ -10,12 +10,21 @@ import {
     Card
 } from 'reactstrap';
 import Toggle from "../componentes/Toggle";
+import Favourite from "../componentes/newFavourite"
 export class Favourites extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            UserId: ""
+        };
+    }
     componentDidMount() {
         this.props.fetchAllAxiosItineraries();
         const token = localStorage.usertoken
         const decoded = jwt_decode(token)
+        this.setState({
+            UserId: decoded._id
+        })
         this.props.fetchAxiosFavourites(decoded._id);
     }
     render() {
@@ -54,7 +63,9 @@ export class Favourites extends Component {
                                                             </div>
                                                             <p className="Rating">{itineraries.hashtags}</p>
                                                         </div>
-
+                                                        <div>
+                                                            <Favourite ItineraryId={itineraries._id} UserId={this.state.UserId} />
+                                                        </div>
                                                     </div>
                                                     <div className="Activities">
                                                         <Toggle>
