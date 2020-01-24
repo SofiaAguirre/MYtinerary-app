@@ -9,7 +9,7 @@ export const fetchAxiosFavourites = UserId => dispatch => {
     });
   })
     .catch(err => {
-      console.log(err);
+      window.location.reload();
     });
 };
 export const deleteAxiosFavourites = favouriteId => dispatch => {
