@@ -2,7 +2,7 @@ import axios from "axios";
 import { FETCH_COMMENTS, POST_COMMENTS, FETCH_ALL_COMMENTS } from "./types";
 
 export const fetchAxiosComments = ItineraryId => dispatch => {
-  axios.get(`/comment/comments/${ItineraryId}`).then(res => {
+  axios.get(`http://localhost:5000/comment/comments/${ItineraryId}`).then(res => {
     dispatch({
       type: FETCH_COMMENTS,
       payload: res.data
@@ -10,7 +10,7 @@ export const fetchAxiosComments = ItineraryId => dispatch => {
   });
 };
 export const fetchAllAxiosComments = () => dispatch => {
-  axios.get("/comment/comments").then(res => {
+  axios.get("http://localhost:5000/comment/comments").then(res => {
     dispatch({
       type: FETCH_ALL_COMMENTS,
       payload: res.data
@@ -37,7 +37,7 @@ export const postAxiosComments = ({
 }) => {
   return dispatch => {
     return axios
-      .post("/comment/comments", { message, username, profileImg, ItineraryId })
+      .post("http://localhost:5000/comment/comments", { message, username, profileImg, ItineraryId })
       .then(res => {
         dispatch(postAxiosCommentSuccess(res.data));
       })

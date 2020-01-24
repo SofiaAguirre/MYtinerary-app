@@ -2,7 +2,7 @@ import axios from "axios";
 import { FETCH_FAVOURITES, POST_FAVOURITES, DELETE_FAVOURITES } from "./types";
 
 export const fetchAxiosFavourites = UserId => dispatch => {
-  axios.get(`/favourite/favourites/${UserId}`).then(res => {
+  axios.get(`http://localhost:5000/favourite/favourites/${UserId}`).then(res => {
     dispatch({
       type: FETCH_FAVOURITES,
       payload: res.data
@@ -13,7 +13,7 @@ export const fetchAxiosFavourites = UserId => dispatch => {
     });
 };
 export const deleteAxiosFavourites = favouriteId => dispatch => {
-  axios.delete(`/favourite/favourites/${favouriteId}`).then(res => {
+  axios.delete(`http://localhost:5000/favourite/favourites/${favouriteId}`).then(res => {
     dispatch({
       type: DELETE_FAVOURITES,
       payload: res.data
@@ -37,7 +37,7 @@ export const postAxiosFavourites = ({
 }) => {
   return dispatch => {
     return axios
-      .post("/favourite/favourites", { ItineraryId, UserId })
+      .post("http://localhost:5000/favourite/favourites", { ItineraryId, UserId })
       .then(res => {
         console.log(res.data)
         if (typeof res.data !== 'string') {
