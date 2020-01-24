@@ -10,9 +10,6 @@ app.use(cors());
 app.use (express.static('client'));
 app.use(bodyParser.json());
 
-app.get('/', function (req, res) {
-    res.send('Hello World!');
-})
 // Initialize routes
 app.use('/api', require('./routes/api'));
 app.use('/itinerary', require ('./routes/ItineraryRoutes'));
