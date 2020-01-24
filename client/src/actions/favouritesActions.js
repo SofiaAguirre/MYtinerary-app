@@ -2,7 +2,7 @@ import axios from "axios";
 import { FETCH_FAVOURITES, POST_FAVOURITES, DELETE_FAVOURITES } from "./types";
 
 export const fetchAxiosFavourites = UserId => dispatch => {
-  axios.get(`http://localhost:5000/favourite/favourites/${UserId}`).then(res => {
+  axios.get(`/favourite/favourites/${UserId}`).then(res => {
     dispatch({
       type: FETCH_FAVOURITES,
       payload: res.data
