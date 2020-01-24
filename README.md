@@ -2,7 +2,7 @@
 
 A travel app that allow users to browse custom itineraries. The app features Google authentication, adding/removing favorites & a comments board.
 It was made using the MERN stack, and Redux as the UI data store.
-
+https://mytinerarymern.herokuapp.com
 ### Getting Started
 
 ### Install Node.js
