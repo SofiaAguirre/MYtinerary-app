@@ -4,7 +4,7 @@ import axios from "axios";
 export const fetchCities = () => dispatch => {
   console.log("Axios working on cities!");
   axios
-    .get("http://localhost:5000/api/cities")
+    .get("/api/cities")
     .then(res => {
       console.log(res);
       dispatch({

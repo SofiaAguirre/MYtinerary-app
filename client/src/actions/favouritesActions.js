@@ -13,7 +13,7 @@ export const fetchAxiosFavourites = UserId => dispatch => {
     });
 };
 export const deleteAxiosFavourites = favouriteId => dispatch => {
-  axios.delete(`http://localhost:5000/favourite/favourites/${favouriteId}`).then(res => {
+  axios.delete(`/favourite/favourites/${favouriteId}`).then(res => {
     dispatch({
       type: DELETE_FAVOURITES,
       payload: res.data
@@ -37,7 +37,7 @@ export const postAxiosFavourites = ({
 }) => {
   return dispatch => {
     return axios
-      .post("http://localhost:5000/favourite/favourites", { ItineraryId, UserId })
+      .post("/favourite/favourites", { ItineraryId, UserId })
       .then(res => {
         console.log(res.data)
         if (typeof res.data !== 'string') {

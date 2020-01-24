@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const register = newUser => {
   return axios
-    .post('http://localhost:5000/users/register', {
+    .post('/users/register', {
       username: newUser.username,
       email: newUser.email,
       password: newUser.password,
@@ -15,7 +15,7 @@ export const register = newUser => {
 
 export const googlelogin = user => {
   return axios
-    .post('http://localhost:5000/users/login', {
+    .post('/users/login', {
       email: user.email,
       password: user.password
     })
@@ -35,7 +35,7 @@ export const googlelogin = user => {
 }
 export const login = user => {
   return axios
-    .post('http://localhost:5000/users/login', {
+    .post('/users/login', {
       email: user.email,
       password: user.password
     })
@@ -54,7 +54,7 @@ export const login = user => {
 }
 export const getProfile = user => {
   return axios
-    .get('http://localhost:5000/users/profile', {
+    .get('/users/profile', {
       //headers: { Authorization: ` ${this.getToken()}` }
     })
     .then(response => {
